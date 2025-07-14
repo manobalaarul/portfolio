@@ -30,5 +30,7 @@ function telegram($msg) {
         
         // Function call with your own text or variable
         telegram ($msg);
+
+        header("Location: index.html");
     }
 ?>
