@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - main
+
+name: 🚀 Deploy PHP Website on Push
+
+jobs:
+  ftp-deploy:
+    name: 🎉 FTP Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout latest code
+        uses: actions/checkout@v3
+
+      - name: 📂 Upload project to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL }} # 'ftp' or 'ftps'
+          local-dir: ./ # root directory of the repo
+          server-dir: / # or your target folder on the server (e.g. /public_html/)
+          # delete-removed: true
