@@ -23,4 +23,3 @@ jobs:
           protocol: ${{ secrets.FTP_PROTOCOL }} # 'ftp' or 'ftps'
           local-dir: ./ # root directory of the repo
           server-dir: / # or your target folder on the server (e.g. /public_html/)
-          delete-removed: true
